@@ -4,22 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact</title>
-    <link rel="stylesheet" href="style.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 
     <style>
         body {
-            background: linear-gradient(to right, #000c0f, #001f24);
             margin: 0;
             font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #000c0f, #001f24);
         }
 
         header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 30px;
+            padding: 15px 40px;
             background: #001f24;
             position: sticky;
             top: 0;
@@ -28,22 +27,23 @@
 
         .logo {
             color: #00e5ff;
-            font-size: 20px;
+            font-size: 22px;
             font-weight: bold;
         }
 
         nav ul {
             display: flex;
             list-style: none;
-            gap: 20px;
+            gap: 30px;
             margin: 0;
             padding: 0;
+            align-items: center;
         }
 
         nav ul li a {
             text-decoration: none;
             color: white;
-            font-weight: 500;
+            font-size: 15px;
         }
 
         nav ul li a.active,
@@ -60,34 +60,36 @@
 
         .section {
             padding: 80px 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 900px;
+            background: #e6e6e6;
+            padding: 50px 20px;
+            border-radius: 12px;
         }
 
         h2 {
-            color: #00e5ff;
-            margin-bottom: 20px;
             text-align: center;
+            color: #00bcd4;
+            margin-bottom: 30px;
         }
 
         .card {
-            background: rgba(0, 172, 193, 0.12);
+            background: rgba(0, 31, 36, 0.9);
             border: 1px solid #00acc1;
-            box-shadow: 0 0 20px rgba(0,255,255,0.2);
             padding: 30px;
-            border-radius: 12px;
+            border-radius: 10px;
             max-width: 500px;
             margin: auto;
-            transition: 0.3s;
-            width: 100%;
-        }
-
-        .card:hover {
-            box-shadow: 0 0 30px rgba(0,255,255,0.6);
-            transform: translateY(-5px);
         }
 
         .info p {
             margin: 12px 0;
-            color: white;
+            color: #ffffff;
         }
 
         .info i {
@@ -102,15 +104,21 @@
         }
 
         input, textarea {
-            padding: 10px;
-            margin: 8px 0;
+            padding: 12px;
+            margin: 10px 0;
             border: none;
             border-radius: 6px;
-            background: #012a30;
+            background: #00363d;
             color: white;
         }
 
+        input::placeholder,
+        textarea::placeholder {
+            color: #b0bec5;
+        }
+
         input:focus, textarea:focus {
+            outline: none;
             box-shadow: 0 0 10px #00e5ff;
         }
 
@@ -134,6 +142,7 @@
             display: none;
             color: #00e676;
             margin-top: 10px;
+            text-align: center;
         }
 
         footer {
@@ -162,18 +171,14 @@
                 padding: 20px 0;
             }
 
-            nav ul li {
-                margin: 10px 0;
-            }
-
             nav.show {
                 display: block;
             }
         }
 
         @media (max-width: 480px) {
-            .section {
-                padding: 50px 15px;
+            .container {
+                padding: 30px 15px;
             }
 
             .card {
@@ -201,23 +206,25 @@
 </header>
 
 <section class="section">
-    <h2>Contact Me</h2>
+    <div class="container">
+        <h2>Contact Me</h2>
 
-    <div class="card">
-        <div class="info">
-            <p><i class="fas fa-envelope"></i>Email: wennardkurt@gmail.com</p>
-            <p><i class="fas fa-user"></i>Facebook: Adiwang, Wennard Kurt Pe</p>
-            <p><i class="fas fa-phone"></i>Phone: 0962-951-5259</p>
-            <p><i class="fas fa-map-marker-alt"></i>Address: Sta.Maria, Alfonso Lista, Ifugao</p>
+        <div class="card">
+            <div class="info">
+                <p><i class="fas fa-envelope"></i>Email: wennardkurt@gmail.com</p>
+                <p><i class="fas fa-user"></i>Facebook: Adiwang, Wennard Kurt Pe</p>
+                <p><i class="fas fa-phone"></i>Phone: 0962-951-5259</p>
+                <p><i class="fas fa-map-marker-alt"></i>Address: Sta.Maria, Alfonso Lista, Ifugao</p>
+            </div>
+
+            <form id="contact-form">
+                <input type="text" name="user_name" placeholder="Your Name" required>
+                <input type="email" name="user_email" placeholder="Your Email" required>
+                <textarea name="message" rows="4" placeholder="Your Message" required></textarea>
+                <button type="submit">Send Message</button>
+                <p class="success" id="success-msg">Message sent successfully!</p>
+            </form>
         </div>
-
-        <form id="contact-form">
-            <input type="text" name="user_name" placeholder="Your Name" required>
-            <input type="email" name="user_email" placeholder="Your Email" required>
-            <textarea name="message" rows="4" placeholder="Your Message" required></textarea>
-            <button type="submit">Send Message</button>
-            <p class="success" id="success-msg">Message sent successfully!</p>
-        </form>
     </div>
 </section>
 
